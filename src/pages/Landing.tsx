@@ -74,8 +74,8 @@ function HeroVisual() {
         baseColor="#476F9E"
         accentColor="#1D4ED8"
         density={340}
-        speed={20}
-        hover={85}
+        speed={16}
+        hover={65}
         distance={48}
         fade={60}
         link={160}

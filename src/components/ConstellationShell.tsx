@@ -315,16 +315,16 @@ export function ConstellationShell({
       gl.viewport(0, 0, bw, bh);
 
       const ptr = ptrRef.current;
-      const pk = 1 - Math.exp(-dt * 3.5);
+      const pk = 1 - Math.exp(-dt * 2.2); // Smoother, calmer cursor damping
       ptr.x += (ptr.tx - ptr.x) * pk;
       ptr.y += (ptr.ty - ptr.y) * pk;
 
-      const hv = (prefersReducedMotion || isMobile) ? 0 : (num(vRef.current.hover, 80) / 100);
+      const hv = (prefersReducedMotion || isMobile) ? 0 : (num(vRef.current.hover, 65) / 100);
       
-      // Symmetrical, full-range 360-degree orbital calculation for both axes
-      const orbitRange = Math.PI * 1.25; // Balanced full orbital span
-      const ay = clock * 0.12 + ptr.x * orbitRange * hv;
-      const ax = clock * 0.08 - ptr.y * orbitRange * hv;
+      // Symmetrical 2-axis orbit with ~24% reduced sensitivity
+      const orbitRange = Math.PI * 0.95;
+      const ay = clock * 0.10 + ptr.x * orbitRange * hv;
+      const ax = clock * 0.07 - ptr.y * orbitRange * hv;
 
       const cy = Math.cos(ay);
       const sy = Math.sin(ay);
