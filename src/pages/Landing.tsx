@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Logo } from '@/components/Logo';
+import { ConstellationShell } from '@/components/ConstellationShell';
 import {
   ArrowRight,
   MessageSquareText,
@@ -66,15 +67,30 @@ function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative animate-fade-up [animation-delay:120ms]">
-      <div className="relative mx-auto max-w-md">
+    <div className="relative flex items-center justify-center min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] animate-fade-up [animation-delay:120ms]">
+      {/* 3D Knowledge Network Constellation Background */}
+      <ConstellationShell
+        className="opacity-70 transition-opacity duration-500"
+        baseColor="#476F9E"
+        accentColor="#1D4ED8"
+        density={300}
+        speed={18}
+        hover={75}
+        distance={50}
+        fade={65}
+        link={155}
+        lineWidth={16}
+      />
+
+      {/* Interactive QA & Standards Visual Overlay */}
+      <div className="relative z-10 mx-auto max-w-md w-full px-2 sm:px-0">
         {/* Question card */}
-        <div className="card p-5 animate-fade-up [animation-delay:200ms]">
+        <div className="card p-5 bg-white/90 backdrop-blur-md shadow-card animate-fade-up [animation-delay:200ms]">
           <div className="flex items-center gap-2 text-xs font-medium text-ink-muted">
             <span className="grid h-7 w-7 place-items-center rounded-full bg-navy-900 text-white">
               <MessageSquareText size={13} />
             </span>
-            Your question
+            <span>Your question</span>
           </div>
           <p className="mt-3 text-sm font-medium text-navy-900">
             "What standard applies to LED bulbs?"
@@ -82,12 +98,12 @@ function HeroVisual() {
         </div>
 
         {/* Answer card */}
-        <div className="card mt-3 p-5 animate-fade-up [animation-delay:320ms]">
+        <div className="card mt-3.5 p-5 bg-white/90 backdrop-blur-md shadow-card animate-fade-up [animation-delay:320ms]">
           <div className="flex items-center gap-2 text-xs font-medium text-ink-muted">
             <span className="grid h-7 w-7 place-items-center rounded-full bg-accent-600 text-white">
               <Sparkles size={13} />
             </span>
-            SAATHI
+            <span>SAATHI</span>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-ink-soft">
             The relevant standard is{' '}
@@ -97,8 +113,8 @@ function HeroVisual() {
             . It covers safety and performance requirements for self-ballasted
             LED lamps for general lighting.
           </p>
-          <div className="mt-4 flex items-center gap-2 rounded-lg border border-navy-100 bg-navy-50/60 p-3">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-white text-navy-700 shadow-sm">
+          <div className="mt-4 flex items-center gap-2 rounded-xl border border-navy-100 bg-navy-50/70 p-3">
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-white text-navy-700 shadow-sm">
               <FileText size={15} />
             </span>
             <div className="min-w-0">
@@ -109,20 +125,20 @@ function HeroVisual() {
                 Self-Ballasted LED Lamps
               </p>
             </div>
-            <span className="ml-auto chip bg-accent-50 text-accent-700">
+            <span className="ml-auto chip-electrical">
               <ShieldCheck size={12} /> Source-backed
             </span>
           </div>
         </div>
 
-        {/* Floating standard chip */}
+        {/* Floating standard badges from verified mock dataset */}
         <div className="absolute -right-3 -top-4 hidden rotate-3 sm:block">
-          <div className="card px-3 py-2 text-xs font-medium text-navy-700 shadow-card-hover">
+          <div className="card px-3 py-2 text-xs font-medium text-navy-800 bg-white/95 backdrop-blur-sm shadow-card-hover border border-navy-200/80">
             IS 10322:2022 · Pressure Cookers
           </div>
         </div>
         <div className="absolute -left-4 bottom-8 hidden -rotate-2 sm:block">
-          <div className="card px-3 py-2 text-xs font-medium text-navy-700 shadow-card-hover">
+          <div className="card px-3 py-2 text-xs font-medium text-navy-800 bg-white/95 backdrop-blur-sm shadow-card-hover border border-navy-200/80">
             IS 9473:2019 · BIS Certification
           </div>
         </div>
