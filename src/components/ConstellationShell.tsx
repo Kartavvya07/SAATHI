@@ -320,17 +320,22 @@ export function ConstellationShell({
       ptr.y += (ptr.ty - ptr.y) * pk;
 
       const hv = (prefersReducedMotion || isMobile) ? 0 : (num(vRef.current.hover, 80) / 100);
-      const ay = clock * 0.12 + ptr.x * 1.8 * hv;
-      const ax = clock * 0.06 - ptr.y * 1.0 * hv;
+      
+      // Symmetrical, full-range 360-degree orbital calculation for both axes
+      const orbitRange = Math.PI * 1.25; // Balanced full orbital span
+      const ay = clock * 0.12 + ptr.x * orbitRange * hv;
+      const ax = clock * 0.08 - ptr.y * orbitRange * hv;
+
       const cy = Math.cos(ay);
       const sy = Math.sin(ay);
       const cx = Math.cos(ax);
       const sx = Math.sin(ax);
 
+      // Orthonormal Ry * Rx rotation matrix in WebGL column-major format
       const rot = new Float32Array([
-        cy, 0, -sy,
-        sy * sx, cx, cy * sx,
-        sy * cx, -sx, cy * cx,
+        cy,        0,   -sy,
+        sy * sx,   cx,  cy * sx,
+        sy * cx,  -sx,  cy * cx,
       ]);
 
       gl.clearColor(0, 0, 0, 0);
@@ -361,12 +366,20 @@ export function ConstellationShell({
       raf = requestAnimationFrame(render);
     };
 
+    // Normalized pointer tracking: -1 (left/top) to 0 (center) to +1 (right/bottom)
     const onMove = (e: MouseEvent) => {
       if (isMobile) return;
       const r = container.getBoundingClientRect();
       if (r.width <= 0 || r.height <= 0) return;
-      ptrRef.current.tx = clampN((e.clientX - r.left) / r.width, -0.3, 1.3) - 0.5;
-      ptrRef.current.ty = clampN((e.clientY - r.top) / r.height, -0.3, 1.3) - 0.5;
+      
+      const centerX = r.left + r.width / 2;
+      const centerY = r.top + r.height / 2;
+      
+      const nx = (e.clientX - centerX) / (r.width / 2);
+      const ny = (e.clientY - centerY) / (r.height / 2);
+      
+      ptrRef.current.tx = clampN(nx, -1.5, 1.5);
+      ptrRef.current.ty = clampN(ny, -1.5, 1.5);
     };
 
     const onLeave = () => {
