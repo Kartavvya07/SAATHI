@@ -8,6 +8,7 @@ import {
   FileText,
   Search,
   Sparkles,
+  Mail,
 } from 'lucide-react';
 
 export function Landing() {
@@ -350,26 +351,22 @@ function Footer() {
               standards through natural language.
             </p>
           </div>
-          <nav className="flex gap-6">
-            <Link
-              to="/"
-              className="text-sm text-ink-soft transition-colors hover:text-navy-900"
-            >
-              Home
-            </Link>
-            <Link
-              to="/assistant"
-              className="text-sm text-ink-soft transition-colors hover:text-navy-900"
-            >
-              Assistant
-            </Link>
-            <Link
-              to="/standards"
-              className="text-sm text-ink-soft transition-colors hover:text-navy-900"
-            >
-              Standards
-            </Link>
-          </nav>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+              Contact
+            </p>
+            <div className="mt-3 flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-navy-50 text-navy-700">
+                <Mail size={15} />
+              </span>
+              <a
+                href="mailto:kartavyasakaria76@gmail.com"
+                className="text-sm font-medium text-navy-900 transition-colors hover:text-accent-600"
+              >
+                kartavyasakaria76@gmail.com
+              </a>
+            </div>
+          </div>
         </div>
         <div className="mt-8 border-t border-navy-100 pt-6">
           <p className="text-center text-xs leading-relaxed text-ink-muted">
