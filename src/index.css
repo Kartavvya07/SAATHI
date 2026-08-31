@@ -21,27 +21,67 @@
   .container-page {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
+
+  /* Typography Utilities */
+  .section-overline {
+    @apply text-xs font-semibold uppercase tracking-widest text-accent-600;
+  }
+  .section-title {
+    @apply font-display text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl;
+  }
+  .section-subtitle {
+    @apply mt-4 text-base leading-relaxed text-ink-soft sm:text-lg;
+  }
+
+  /* Button System */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98];
   }
   .btn-primary {
-    @apply btn bg-navy-900 text-white px-6 py-3 text-sm hover:bg-navy-800 hover:shadow-card-hover;
+    @apply btn bg-navy-900 text-white px-5 py-2.5 text-sm hover:bg-navy-800 hover:shadow-card-hover;
+  }
+  .btn-primary-lg {
+    @apply btn bg-navy-900 text-white px-6 py-3 text-base hover:bg-navy-800 hover:shadow-card-hover;
   }
   .btn-secondary {
-    @apply btn bg-white text-navy-900 border border-navy-200 px-6 py-3 text-sm hover:border-navy-300 hover:bg-navy-50;
+    @apply btn bg-white text-navy-900 border border-navy-200 px-5 py-2.5 text-sm hover:border-navy-300 hover:bg-navy-50;
+  }
+  .btn-secondary-lg {
+    @apply btn bg-white text-navy-900 border border-navy-200 px-6 py-3 text-base hover:border-navy-300 hover:bg-navy-50;
+  }
+  .btn-accent {
+    @apply btn bg-accent-600 text-white px-5 py-2.5 text-sm hover:bg-accent-700 hover:shadow-card-hover;
   }
   .btn-ghost {
-    @apply btn text-ink-soft px-4 py-2 text-sm hover:text-navy-900 hover:bg-navy-50;
+    @apply btn text-ink-soft px-3.5 py-2 text-sm hover:text-navy-900 hover:bg-navy-100/60;
   }
+
+  /* Card System */
   .card {
-    @apply rounded-2xl border border-navy-100 bg-white shadow-card;
+    @apply rounded-2xl border border-navy-100/80 bg-white shadow-card;
   }
   .card-hover {
     @apply transition-all duration-300 hover:shadow-card-hover hover:border-navy-200;
   }
+
+  /* Badge & Chip System */
   .chip {
     @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
   }
+  .chip-neutral {
+    @apply chip border border-navy-200 bg-white/80 text-ink-soft;
+  }
+  .chip-electrical {
+    @apply chip bg-accent-50 text-accent-700 border border-accent-200/50;
+  }
+  .chip-household {
+    @apply chip bg-emerald-50 text-emerald-700 border border-emerald-200/50;
+  }
+  .chip-consumer {
+    @apply chip bg-amber-50 text-amber-700 border border-amber-200/50;
+  }
+
+  /* Form & Input System */
   .input {
     @apply w-full rounded-xl border border-navy-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-100 transition;
   }

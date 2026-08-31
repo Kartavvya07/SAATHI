@@ -16,10 +16,10 @@ interface SourceViewerProps {
   onClose: () => void;
 }
 
-const categoryColors: Record<string, string> = {
-  Electrical: 'bg-accent-50 text-accent-700',
-  Household: 'bg-emerald-50 text-emerald-700',
-  'Consumer Products': 'bg-amber-50 text-amber-700',
+const categoryChipClass: Record<string, string> = {
+  Electrical: 'chip-electrical',
+  Household: 'chip-household',
+  'Consumer Products': 'chip-consumer',
 };
 
 export function SourceViewer({ source, onClose }: SourceViewerProps) {
@@ -81,11 +81,7 @@ export function SourceViewer({ source, onClose }: SourceViewerProps) {
                   <h1 className="mt-1 font-display text-2xl font-semibold leading-tight text-navy-900 sm:text-3xl lg:text-4xl">
                     {source.title}
                   </h1>
-                  <span
-                    className={`chip mt-3 ${
-                      categoryColors[source.category] ?? 'bg-navy-50 text-navy-700'
-                    }`}
-                  >
+                  <span className={`mt-3 ${categoryChipClass[source.category] ?? 'chip-neutral'}`}>
                     {source.category}
                   </span>
                 </div>

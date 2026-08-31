@@ -35,7 +35,7 @@ function Hero() {
       <div className="container-page pt-16 pb-20 sm:pt-24 lg:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="animate-fade-up">
-            <span className="chip border border-navy-200 bg-white/70 text-ink-soft">
+            <span className="chip-neutral">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
               Standards Assistant · Prototype
             </span>
@@ -46,13 +46,13 @@ function Hero() {
               An intelligent assistant for discovering relevant BIS standards,
               understanding requirements, and finding source-backed information.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link to="/assistant" className="btn-primary text-base">
-                Explore SAATHI
+            <div className="mt-9 flex flex-wrap items-center gap-3.5">
+              <Link to="/assistant" className="btn-primary-lg">
+                <span>Explore SAATHI</span>
                 <ArrowRight size={18} />
               </Link>
-              <Link to="/standards" className="btn-secondary text-base">
-                Explore Standards
+              <Link to="/standards" className="btn-secondary-lg">
+                <span>Explore Standards</span>
               </Link>
             </div>
           </div>
@@ -136,7 +136,7 @@ function WhatIsSaathi() {
     <section className="border-t border-navy-100/60 bg-white/50">
       <div className="container-page py-20 lg:py-28">
         <div className="mx-auto max-w-3xl text-center animate-fade-up">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent-600">
+          <span className="section-overline">
             What is SAATHI
           </span>
           <p className="mt-5 font-display text-3xl font-medium leading-snug text-navy-900 sm:text-4xl">
@@ -174,10 +174,10 @@ function Features() {
   return (
     <section className="container-page py-20 lg:py-28">
       <div className="max-w-2xl">
-        <span className="text-xs font-semibold uppercase tracking-widest text-accent-600">
+        <span className="section-overline">
           What SAATHI can do
         </span>
-        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl">
+        <h2 className="mt-3 section-title">
           Three core capabilities
         </h2>
       </div>
@@ -268,10 +268,10 @@ function Trust() {
     <section className="container-page py-20 lg:py-28">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div className="animate-fade-up">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent-600">
+          <span className="section-overline">
             Trust
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-3 section-title">
             Built around source-backed information.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-ink-soft">
@@ -329,8 +329,8 @@ function FinalCTA() {
             Open the SAATHI assistant and ask your first question about Indian
             Standards.
           </p>
-          <Link to="/assistant" className="btn-primary mt-9 bg-white text-navy-900 hover:bg-cream">
-            Open SAATHI
+          <Link to="/assistant" className="btn-primary-lg mt-9 bg-white text-navy-900 hover:bg-cream">
+            <span>Open SAATHI</span>
             <ArrowRight size={18} />
           </Link>
         </div>

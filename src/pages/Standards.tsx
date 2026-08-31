@@ -40,14 +40,14 @@ export function Standards() {
   return (
     <div className="container-page py-12 lg:py-16">
       <div className="animate-fade-up">
-        <span className="chip border border-navy-200 bg-white/70 text-ink-soft">
+        <span className="chip-neutral">
           <Library size={13} />
           Knowledge base · Prototype
         </span>
         <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-navy-900 sm:text-5xl">
           Explore Indian Standards
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+        <p className="section-subtitle max-w-2xl">
           Browse the standards currently available in the SAATHI prototype
           knowledge base.
         </p>
@@ -63,7 +63,7 @@ export function Standards() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search standards…"
+            placeholder="Search standards by number, title, or scope…"
             className="input pl-11"
           />
         </div>
@@ -73,9 +73,9 @@ export function Standards() {
             <button
               key={cat}
               onClick={() => setActiveCat(cat)}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 active:scale-[0.98] ${
                 activeCat === cat
-                  ? 'bg-navy-900 text-white'
+                  ? 'bg-navy-900 text-white shadow-sm'
                   : 'border border-navy-200 bg-white text-ink-soft hover:border-navy-300 hover:text-navy-900'
               }`}
             >
